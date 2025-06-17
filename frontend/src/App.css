@@ -1,0 +1,371 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #28282c;
+  color: #ffffff;
+  height: 100vh; 
+  text-align: center; 
+}
+.header {
+  padding: 1rem 2rem;
+  color: rgb(235, 235, 235);
+  display: flex;
+  align-items: center;     
+  justify-content: flex-start;  /* plus proches, alignés à gauche */
+  gap: 2rem;  /* espace entre logo et nav */
+  background: transparent;
+}
+
+
+.logo {
+  height: 40px;     /* ou 30px, selon la taille désirée */
+  width: auto;      /* conserve les proportions de l’image */
+}
+
+.header nav ul {
+  list-style: none;
+  display: flex;      
+  gap: 2rem;                
+  margin: 0;
+  padding: 0;
+}
+
+.header nav ul li a {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* Soulignement épaissi et animation */
+.header nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;      /* un peu plus bas sous le texte */
+  width: 0;
+  height: 4px;       /* soulignement plus épais */
+  background-color: #af2d16;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* Au survol : le trait s'étend de gauche à droite */
+.header nav ul li a:hover::after {
+  width: 100%;
+  right: 100%;
+}
+
+/* Quand on enlève la souris : 
+   le trait se réduit en partant de la droite */
+.header nav ul li a:not(:hover)::after {
+  width: 0;
+  left: 50%;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;  /* aligner tout en haut */
+  justify-content: space-between;
+  height: 60vh;
+  padding: 10rem;            /* padding autour */
+  background-color: #28282b;
+  color: white;
+  gap: 2rem;
+  position: relative;        /* nécessaire pour le pseudo-élément */
+  overflow: hidden;          /* pour éviter que le fond déborde */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0; left:0; right:0; bottom:0; */
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05) 0,
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  pointer-events: none;   /* pour ne pas gêner les clics */
+  z-index: 0;             /* derrière le contenu */
+}
+
+
+.hero-text {
+  flex: 1;
+  text-align: left;  /* texte à gauche */
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  color: #ebebeb;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+
+
+.testimonials-photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 2rem;
+  max-width: 400px; 
+  margin: 2rem auto 0 auto;
+}
+
+.testimonial-item img {
+  width: 100%;    
+  border-radius: 10px;
+  object-fit: cover;
+  height: 200px; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: block;
+}
+.highlight-lynar {
+  color: #d6452c; /* exemple : couleur rouge tomate */
+  font-weight: 700; /* optionnel, pour renforcer le style */
+}
+
+
+.highlight {
+  color: #d6452c;
+  font-weight: bold;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  display: inline-block; 
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+   font-size: 10px; 
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto; 
+  display: inline-block;
+ 
+}
+
+section {
+
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+h1, h2 {
+  margin-bottom: 1rem;
+}
+
+
+.about {
+  display: flex;
+  align-items: flex-start;    /* pour aligner en haut */
+  justify-content: space-between;
+  padding: 6rem 2rem 2rem 2rem;  /* descendre un peu avec padding-top */
+  max-width: 1000px;
+  margin: auto;
+  gap: 3rem;
+  color: white;
+}
+.about-text {
+  flex: 1;
+  text-align: center;  /* centre le texte (le paragraphe) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.about-text h2 {
+  text-align: left;    /* titre aligné à gauche */
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  color: #f7f7f7;
+}
+
+.about-text h2::after {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 4px;
+  background-color: #d6452c;
+  margin-top: 0.3rem;
+  border-radius: 2px;
+}
+.about-image {
+  flex: 1;                     /* image à droite prend l'autre moitié */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(187, 12, 12, 0.3);
+}
+.features-grid {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.features-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  grid-template-rows: repeat(2, auto);   /* 2 lignes */
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background-color: #1f1f23;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  margin: 0;
+  font-weight: 600;
+  color: #ffffff;
+}
+.features-grid h2 {
+  margin-bottom: 5rem; /* ajuste selon l’espace souhaité */
+}
+
+.contact {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #1f1f23; /* fond un peu plus sombre */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  color: white;
+  text-align: center;
+}
+
+.contact h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  border-bottom: 3px solid #d6452c;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact input,
+.contact textarea {
+  background-color: #2e2e34;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: white;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #d6452c;
+  box-shadow: 0 0 5px #d6452c;
+}
+
+.contact button {
+  background-color: #d6452c;
+  border: none;
+  padding: 0.85rem 1.5rem;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+  background-color: #d6452c;
+}
+.testimonials-photos {
+  max-width: 700px; /* augmente la largeur du conteneur */
+}
+
+.testimonial-item img {
+  width: 80%;       /* réduit la largeur à 80% du conteneur parent */
+  height: auto;     /* laisse la hauteur s’adapter à la largeur */
+  max-height: 150px; /* limite la hauteur max */
+  margin: 0 auto;   /* centre l’image horizontalement */
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.testimonial-item img:hover {
+  transform: scale(1.05); /* léger zoom au survol */
+}
+.testimonial-item img[src*="Jsl.jpg"] {
+  max-height: 100px;
+  width: 30.5%;
+}
+
