@@ -1,11 +1,34 @@
+import React from "react";
 
-
-function Footer() {
+const Footer = () => {
   return (
     <footer className="footer">
-      <p>&copy; {new Date().getFullYear()} MonERP - Tous droits réservés</p>
+      <div className="footer-container">
+        <div className="footer-mentions">
+          <p>
+            © 2025 Ytty — Tous droits réservés
+          </p>
+          <p className="footer-links">
+            <a href="/protection-des-donnees" className="underline-hover">
+              Protection des données
+            </a>
+            |
+            <a href="/mentions-legales" className="underline-hover">
+              Mentions légales
+            </a>
+            |
+            <a href="/politique-de-confidentialite">
+              Politique de confidentialité
+            </a>
+            |
+            <a href="/conditions-generales-dutilisation">
+              Conditions générales d’utilisation
+            </a>
+          </p>
+        </div>
+      </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

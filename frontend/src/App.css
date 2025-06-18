@@ -7,13 +7,37 @@ body {
   text-align: center; 
 }
 .header {
+  position: relative;
+  width: 100%;
   padding: 1rem 2rem;
   color: rgb(235, 235, 235);
   display: flex;
-  align-items: center;     
-  justify-content: flex-start;  /* plus proches, alignés à gauche */
-  gap: 2rem;  /* espace entre logo et nav */
+  align-items: center;
+  gap: 2rem;
   background: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  z-index: 10;
+}
+
+/* Sticky : position fixe avec fond */
+.header.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #28282c;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Visible : barre en place */
+.header.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hidden : barre cachée (glisse vers le haut) */
+.header.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 
 
@@ -38,6 +62,9 @@ body {
   color: inherit;
   text-decoration: none;
   transition: color 0.3s ease;
+}
+.header nav ul li:nth-child(2) {
+  margin-left: auto;
 }
 
 /* Soulignement épaissi et animation */
@@ -203,7 +230,7 @@ h1, h2 {
 }
 .about-text {
   flex: 1;
-  text-align: center;  /* centre le texte (le paragraphe) */
+  text-align: left;  /* centre le texte (le paragraphe) */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -229,23 +256,49 @@ h1, h2 {
   border-radius: 2px;
 }
 .about-image {
+  margin-top: 10rem;
   flex: 1;                     /* image à droite prend l'autre moitié */
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
+
 }
 
 .about-image img {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(187, 12, 12, 0.3);
+ 
+
 }
 .features-grid {
   padding: 4rem 2rem;
+  margin-top: 6rem; 
   max-width: 1000px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
+  background-color: #212124;
+  
+}
+
+.features-grid h2 {
+  position: relative;
+  display: inline-block;  /* pour que la ligne soit juste sous le texte */
+  margin-bottom: 1rem;    /* espace sous le titre */
+     /* ajuste si besoin */
+
+  /* Soulignement personnalisé */
+}
+
+.features-grid h2::after {
+  content: "";
+  display: block;
+  width: 150px;            /* largeur du soulignement */
+  height: 4px;            /* épaisseur du trait */
+  background-color: #ffffff; /* couleur rouge tomate */
+  margin-top: 0.3rem;
+  border-radius: 2px;     /* arrondi léger */
 }
 
 .features-cards {
@@ -270,6 +323,8 @@ h1, h2 {
 
 .feature-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px #504f4f; /* ombre plus grande et plus foncée */
+
 }
 
 .feature-card img {
@@ -283,19 +338,24 @@ h1, h2 {
   font-weight: 600;
   color: #ffffff;
 }
+
 .features-grid h2 {
   margin-bottom: 5rem; /* ajuste selon l’espace souhaité */
 }
+.feature-card--plm img {
+  width: 100px;
+  height: 100px;
+}
 
 .contact {
-  max-width: 500px;
+  max-width: 900px;
   margin: 4rem auto;
   padding: 2rem;
-  background-color: #1f1f23; /* fond un peu plus sombre */
+  background-color: #1f1f23;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   color: white;
-  text-align: center;
+  text-align: left;
 }
 
 .contact h2 {
@@ -306,7 +366,16 @@ h1, h2 {
   padding-bottom: 0.5rem;
 }
 
+.contact-container {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row-reverse; /* <-- inverse l’ordre des enfants */
+}
+
 .contact form {
+  flex: 1 1 400px;  /* prend l’espace disponible à gauche */
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -344,10 +413,55 @@ h1, h2 {
 }
 
 .contact button:hover {
-  background-color: #d6452c;
+  background-color: #b6361f;
 }
+
+.contact-info {
+  flex: 1 1 300px;  /* prend l’espace à droite */
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.contact-info p {
+  margin-bottom: 1.5rem;
+}
+
+.contact-container {
+  display: flex;
+  gap: 3rem;
+  max-width: 900px;
+  margin: auto;
+  align-items: flex-start;
+}
+
+.contact-container form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-info {
+  flex: 1;
+  color: #fff;
+  text-align: left;
+}
+
+.contact-info a {
+  color: #d6452c;
+  text-decoration: none; /* enlever le soulignement */
+  font-size: 1.1rem;     /* agrandir un peu le texte, ajuste selon besoin */
+ 
+  cursor: pointer;
+}
+
+.testimonials {
+  margin-bottom: 15rem; /* espace sous la section testimonials */
+}
+
 .testimonials-photos {
-  max-width: 700px; /* augmente la largeur du conteneur */
+  max-width: 44rem; /* augmente la largeur du conteneur */
+ 
 }
 
 .testimonial-item img {
@@ -358,7 +472,7 @@ h1, h2 {
   display: block;
   border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(46, 46, 46, 0.15);
 }
 
 .testimonial-item img:hover {
@@ -369,3 +483,221 @@ h1, h2 {
   width: 30.5%;
 }
 
+.screenshot-slider {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #1f1f23;
+  color: white;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.slider-image {
+  max-width: 80%;
+  max-height: 500px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: #d6452c;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-button:hover {
+  color: #ffffff;
+}
+
+.footer {
+  max-width: 3000px;
+  padding: 1rem;
+  background-color: #1f1f23;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.footer-mentions {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.footer-links a {
+  color: #d6452c;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1rem;
+  position: relative;
+}
+
+/* Animation soulignement au hover */
+.underline-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: #d6452c;
+  transition: width 0.3s ease-in-out;
+}
+
+.underline-hover:hover::after {
+  width: 100%;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media screen and (max-width: 1024px) {
+  .hero,
+  .about {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 2rem;
+    height: auto;
+  }
+
+  .hero-image,
+  .about-image {
+    justify-content: center;
+  }
+
+  .hero-text,
+  .about-text {
+    text-align: center;
+  }
+
+  .features-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-container {
+    flex-direction: column-reverse;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .contact form,
+  .contact-info {
+    width: 100%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-mentions {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p,
+  .about-text p {
+    font-size: 1.1rem;
+  }
+
+  .features-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-photos {
+    grid-template-columns: 1fr;
+  }
+
+  .slider {
+    flex-direction: column;
+  }
+
+  .slider-image {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-text h1,
+  .about-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+
+  .contact h2,
+  .features-grid h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer-mentions {
+    font-size: 0.85rem;
+  }
+}
+.video-section {
+  text-align:right;
+  padding: 12rem 2rem;
+  color: white;
+}
+
+.video-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 7rem;
+  color: #ffffff;
+
+  
+
+}
+
+.video-container {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.underline-red {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+}
+
+.underline-red::after {
+  content: "";
+  position: absolute;
+  left: 62%;
+  bottom: 0;
+  height: 4px;
+  background-color: #d6452c;
+  width: 25rem; /* ← adapte ici la longueur du soulignement */
+  bottom: -0.7rem;
+  border-radius: 2px;
+}

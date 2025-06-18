@@ -30,7 +30,7 @@ function Hero() {
        
       </div>
       <div className="hero-image">
-        <img src="/../images/ERP.jpg" alt="ERP illustration" />
+        <img src="/../images/EP.jpg" alt="ERP illustration" />
       </div>
     </section>
   );

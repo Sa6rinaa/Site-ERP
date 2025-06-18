@@ -8,7 +8,7 @@ function About() {
         </p>
       </div>
       <div className="about-image">
-        <img src="/path/to/your/image.jpg" alt="ERP illustration" />
+        <img src="/../images/REPillustration.jpg" alt="ERP illustration" />
       </div>
     </section>
   )
