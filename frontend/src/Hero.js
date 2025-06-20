@@ -30,10 +30,12 @@ function Hero() {
        
       </div>
       <div className="hero-image">
-        <img src="/../images/EP.jpg" alt="ERP illustration" />
+        {/* <img src="/../images/EP.jpg" alt="ERP illustration" /> */}
       </div>
     </section>
   );
 }
+
+
 
 export default Hero;

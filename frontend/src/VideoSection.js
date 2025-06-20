@@ -9,7 +9,7 @@ function VideoSection() {
 </h2>
       <div className="video-container">
         <video controls>
-          <source src="/../images/POFINE.mp4" type="video/mp4" />
+          <source src="/../images/POFINE2.mp4" type="video/mp4" />
           Votre navigateur ne supporte pas la vidéo.
         </video>
       </div>

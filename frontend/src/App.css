@@ -362,7 +362,99 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
+/* Fade animation pour texte dynamique */
+.highlight {
+  transition: opacity 0.5s ease;
+  color: #ED6A17;
+}
 
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+
+
+.simulateur-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  background-color: #222;
+  color: white;
+  min-height: 400px;
+  max-width: 1200px;
+  margin: 5px auto 0 auto;
+  border-radius: 15px;
+}
+
+.simulateur-left {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.simulateur-right {
+  flex: 1;
+  text-align: right;
+}
+
+.simulateur-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.highlighted-text {
+  color: #af2d16;
+}
+
+.secteur-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.modules-box {
+  margin-top: 10px;
+  text-align: center;
+  background-color: #333;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: white;
+}
+
+.modules-box ul {
+  padding-left: 11rem;
+  text-align: left;
+}
+
+.modules-box li {
+  margin-bottom: 1rem;
+}
+
+.modules-link {
+  color: #af2d16;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+  padding-left: 2rem;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.simulateur-image {
+  max-width: 100%;
+  border-radius: 15px;
+}
 
 
 .testimonials-photos {
@@ -370,7 +462,7 @@ body {
   grid-template-columns: repeat(2, 1fr); 
   gap: 2rem;
   max-width: 400px; 
-  margin: 2rem auto 0 auto;
+  margin: 4rem auto 0 auto;
 }
 
 .testimonial-item img {
@@ -933,3 +1025,88 @@ h1, h2 {
   bottom: -0.7rem;
   border-radius: 2px;
 }
+
+
+
+
+/* sim 
+
+
+.simulateur-modules {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;    /* padding vertical + horizontal */
+  /* background-color: #222;
+  color: white;
+  height: 180px;         /* hauteur augmentée, visible */
+  /* max-width: 1200px;     max largeur raisonnable
+  width: 90%;            large mais pas full écran
+  margin: 1.5rem auto 0 auto; centré avec marge */
+  /* border-radius: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4); */
+/* } */ 
+
+/* Partie gauche prend un peu plus de place pour le texte et select */
+/* .simulateur-gauche {
+  flex: 2;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} */
+
+/* Partie droite pour l'image */
+/* .simulateur-droite {
+  flex: 1;
+  text-align: right;
+} */
+
+/* Select assez large, confortable */
+/* .secteur-select {
+  width: 250px;
+  height: 40px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+} */
+
+/* Modules box plus visible, sous le select */
+/* .modules-box {
+  margin-top: 15px;
+  background-color: #333;
+  padding: 12px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.modules-box ul {
+  padding-left: 1.2rem;
+}
+
+.modules-box li {
+  margin-bottom: 0.5rem;
+} */
+
+/* Lien bien visible */
+/* .modules-link {
+  color: #ED6A17;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 600;
+} */
+
+/* Image droite plus contenue */
+/* .simulateur-droite img {
+  max-height: 140px;
+  object-fit: contain;
+} */
