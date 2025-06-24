@@ -15,8 +15,7 @@ function Features() {
         {items.map((item, index) => (
           <div
             key={index}
-            className={`feature-card ${item.icon.includes("PLM.jpg") ? "feature-card--plm" : ""}`}
-          >
+            className={`feature-card ${item.icon.includes("PLM.jpg") ? "feature-card--plm" : ""}`}   >
             <img src={item.icon} alt={item.text} />
             <p>{item.text}</p>
           </div>

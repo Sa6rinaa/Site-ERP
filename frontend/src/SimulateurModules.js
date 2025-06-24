@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-
+// Dictionnaire des modules par secteur
 const modulesParSecteur = {
   logistique: [
     '📦 Gestion des stocks',
@@ -24,16 +24,14 @@ const modulesParSecteur = {
   ],
 };
 
-
-
 const SimulateurModules = () => {
-  const [secteur, setSecteur] = useState('');
   const [modules, setModules] = useState([]);
+  const [secteur, setSecteur] = useState('');
 
-  const handleChange = (e) => {
-    const selected = e.target.value;
-    setSecteur(selected);
-    setModules(modulesParSecteur[selected] || []);
+
+  const handleMouseEnter = (secteur) => {
+    setSecteur(secteur);
+    setModules(modulesParSecteur[secteur] || []);
   };
 
   return (
@@ -43,16 +41,41 @@ const SimulateurModules = () => {
           <span className="highlighted-text">Ylinar</span> une <strong>ERP</strong> pour gérer <br />
           pour votre : <span className="highlighted-text">{secteur ? secteur.charAt(0).toUpperCase() + secteur.slice(1) : '...'}</span>
         </h1>
-        <p>Une solution ERP complète, simple et performante.</p>
+        <p>Une solution ERP complète, simple et performante pour votre entreprise.</p>
 
-        <select value={secteur} onChange={handleChange} className="secteur-select">
-          <option value="">-- Choisissez un secteur --</option>
-          <option value="logistique">Logistique</option>
-          <option value="commerce">Commerce</option>
-          <option value="services">Services</option>
-          <option value="production">Production</option>
-        </select>
+        {/* Conteneur des icônes de secteurs */}
+        <div className="secteurs-container">
+          <div
+            className="secteur-icon"
+            onMouseEnter={() => handleMouseEnter('logistique')}
+            title="Logistique"
+          >
+            📦
+          </div>
+          <div
+            className="secteur-icon"
+            onMouseEnter={() => handleMouseEnter('commerce')}
+            title="Commerce"
+          >
+            🛒
+          </div>
+          <div
+            className="secteur-icon"
+            onMouseEnter={() => handleMouseEnter('services')}
+            title="Services"
+          >
+            📅
+          </div>
+          <div
+            className="secteur-icon"
+            onMouseEnter={() => handleMouseEnter('production')}
+            title="Production"
+          >
+            🏭
+          </div>
+        </div>
 
+        {/* Affichage des modules suggérés */}
         {modules.length > 0 && (
           <div className="modules-box">
             <h3>Modules suggérés :</h3>
@@ -61,12 +84,19 @@ const SimulateurModules = () => {
                 <li key={index}>{mod}</li>
               ))}
             </ul>
-            <a href="#features" className="modules-link">➕ En savoir plus sur ces modules</a>
+          
           </div>
         )}
       </div>
 
-     
+      <div className="simulateur-right">
+        {/* Ajouter une image dynamique si nécessaire */}
+        <img
+  className="simulateur-image fleche-inversee"
+  src="/../images/giphy4.jpg"
+  alt="ERP illustration"
+/>
+      </div>
     </section>
   );
 };

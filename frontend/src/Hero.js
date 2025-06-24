@@ -7,10 +7,10 @@ function Hero() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setFade(false); // fade out
+      setFade(false);
       setTimeout(() => {
-        setIndex(prev => (prev + 1) % mots.length);
-        setFade(true);  // fade in
+        setIndex((prev) => (prev + 1) % mots.length);
+        setFade(true); 
       }, 500);
     }, 3000);
 
@@ -20,22 +20,22 @@ function Hero() {
   return (
     <section className="hero">
       <div className="hero-text">
-      <h1>
-  <span className="highlight-lynar">Ylinar</span> une ERP pour gérer pour votre :{" "}
-  <span className={`highlight ${fade ? "fade-in" : "fade-out"}`}>
-    {mots[index]}
-  </span>
-</h1>
+        <h1>
+          <span className="highlight-lynar">Ylinar</span> une ERP pour gérer pour votre :{" "}
+          <span className={`highlight ${fade ? "fade-in" : "fade-out"}`}>
+            {mots[index]}
+          </span>
+        </h1>
         <p>Une solution ERP complète, simple et performante.</p>
-       
       </div>
+
       <div className="hero-image">
-        {/* <img src="/../images/EP.jpg" alt="ERP illustration" /> */}
+        <img src="/../images/mon-gif.jpg" alt="ERP illustration" />
       </div>
+
+  
     </section>
   );
 }
-
-
 
 export default Hero;

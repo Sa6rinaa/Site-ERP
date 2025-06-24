@@ -5,8 +5,7 @@ function Header() {
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [featuresOpen, setFeaturesOpen] = useState(false); // nouveau état
-
+  const [featuresOpen, setFeaturesOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -31,15 +30,15 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  // Quand on clique sur un lien, on ferme le menu et le sous-menu
+  
   const handleLinkClick = () => {
     setMenuOpen(false);
     setFeaturesOpen(false);
   };
 
-  // Toggle du sous-menu "Fonctionnalités"
+  
   const toggleFeatures = (e) => {
-    e.preventDefault(); // empêcher le saut de page
+    e.preventDefault(); 
     setFeaturesOpen(!featuresOpen);
   };
 
@@ -55,7 +54,7 @@ function Header() {
 
           <li className={`dropdown ${featuresOpen ? "open" : ""}`}>
             <a href="#features" onClick={toggleFeatures}>
-            Fonctionnalités <span className="arrow">▼</span>
+              Fonctionnalités <span className="arrow">▼</span>
             </a>
             <ul className="dropdown-menu">
               <li><a href="#gestion-commerciale" onClick={handleLinkClick}>Gestion commerciale</a></li>
@@ -82,3 +81,4 @@ function Header() {
 }
 
 export default Header;
+

@@ -10,7 +10,8 @@ import Features from './Features'
 import Testimonials from './Testimonials'
 import Contact from './Contact'
 import Footer from './Footer'
-import SimulateurModules from './SimulateurModules' // Ton simulateur
+import SimulateurModules from './SimulateurModules' 
+
 
 
 function HomePage() {
@@ -21,7 +22,6 @@ function HomePage() {
       <About />  
       <Features />
       <VideoSection />
-      {/* <SimulateurModules /> Ton simulateur s'affiche ici */}
       <SimulateurModules />
       <Testimonials />
       <Contact />
@@ -35,11 +35,11 @@ function App() {
     <>
       <Header />
       <main>
-        <HomePage /> {/* On appelle bien HomePage ici */}
+        <HomePage /> 
       </main>
       <Footer />
     </>
   )
 }
 
-export default App
+export default App 
